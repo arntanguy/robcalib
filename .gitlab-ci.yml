@@ -1,0 +1,19 @@
+variables:
+  CI_TOOL: gitlab-ci
+  APT_DEPENDENCIES: "doxygen libltdl-dev libboost-all-dev liblog4cxx10-dev libjsoncpp-dev libmatio-dev"
+  GIT_DEPENDENCIES: "roboptim/roboptim-core roboptim/roboptim-core-plugin-eigen arntanguy/eigen-matio"
+  LTDL_LIBRARY_PATH: "/tmp/_ci/install/lib/roboptim-core/:$LTDL_LIBRARY_PATH"
+
+before_script:
+  - git submodule update --quiet --init --recursive
+  - ./.jrl-ci/dependencies/eigen-3.2
+  - ./.jrl-ci/run before_install
+
+build_default:
+  stage: build
+  script:
+    - ./.jrl-ci/run build
+    - ./.jrl-ci/run after_success
+
+stages:
+  - build

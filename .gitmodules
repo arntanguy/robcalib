@@ -1,0 +1,9 @@
+[submodule "cmake"]
+	path = cmake
+	url = https://github.com/jrl-umi3218/jrl-cmakemodules.git
+[submodule "include/Sophus"]
+	path = include/Sophus
+	url = https://github.com/arntanguy/Sophus.git
+[submodule ".jrl-ci"]
+	path = .jrl-ci
+	url = https://github.com/jrl-umi3218/jrl-travis.git
